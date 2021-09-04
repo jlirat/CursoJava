@@ -45,6 +45,7 @@ public class Dog {
         this.color = "white";
         this.weight = 300; //; 300 / 1000
         this.name = "unknown";
+
     }
 
     public Dog(String b, int a, String c) {
@@ -52,6 +53,7 @@ public class Dog {
         this.age = a;
         this.color = c;
         this.name ="unknown";
+        
     }
 
     

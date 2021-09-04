@@ -12,5 +12,6 @@ public class Main {
         bendi.setAge(4);
         System.out.println(String.format("%s is my weight", bendi.getWeight()));
         oskar.barking();
+        
     }
 }
