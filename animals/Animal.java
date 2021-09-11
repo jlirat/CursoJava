@@ -1,17 +1,34 @@
 package animals;
 
 public abstract class Animal {
+    int id;
     String breed;
     String color;
     int age;
     double weight;
+    String observacion;
+    public String getObservacion() {
+        return observacion;
+    }
+
+    public void setObservacion(String observacion) {
+        this.observacion = observacion;
+    }
+
     public Animal() {
         this.breed = "pequinnes";
         this.age = 0;
         this.color = "white";
         this.weight = 300; //; 300 / 1000
+        this.observacion = "";
     }
 
+    public int getId() {
+        return id;
+    }
+    public void setId(int id) {
+        this.id = id;
+    }
     public Animal(String b, int a, String c) {
         this.breed = b;
         this.age = a;
