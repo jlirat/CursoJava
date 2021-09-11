@@ -29,6 +29,7 @@ public abstract class Animal {
     public void setId(int id) {
         this.id = id;
     }
+    
     public Animal(String b, int a, String c) {
         this.breed = b;
         this.age = a;

@@ -1,4 +1,5 @@
 import animals.Dog;
+import animals.Horse;
 import animals.Parrot;
 
 import java.lang.reflect.Type;
@@ -11,6 +12,7 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 
+import animals.Animal;
 import animals.AnimalJson;
 import animals.Cat;
 
@@ -37,8 +39,57 @@ public class Main {
             String json = readUrl(urlAccesoDatos);
             Type listType = new TypeToken<ArrayList<AnimalJson>>(){}.getType();
             List<AnimalJson> list = new Gson().fromJson(json, listType);
+
+            ArrayList<Animal> lst = new ArrayList<>();
+
             for(AnimalJson animal: list) {
-                System.out.println(animal.Nombre);
+                switch(animal.Tipo) {
+                    case  "Gato":
+                        Cat gato = new Cat("mestizo", 1, "nose");
+                        gato.setName(animal.Nombre);
+                        gato.setObservacion(animal.Observacion);
+                        gato.setId(animal.id);
+                        lst.add(gato);
+                        break;
+                    case "Perro":
+                        Dog perro = new Dog();
+                        perro.setName(animal.Nombre);
+                        perro.setObservacion(animal.Observacion);
+                        perro.setId(animal.id);
+                        lst.add(perro);
+                        break;
+                    case "Caballo":
+                        Horse caballo = new Horse("mestizo", 1, "nose");
+                        caballo.setName(animal.Nombre);
+                        caballo.setObservacion(animal.Observacion);
+                        caballo.setId(animal.id);
+                        lst.add(caballo);
+                        break;
+                    case "Pajaro":
+                        Parrot pajaro = new Parrot("mestizo", 1, "nose");
+                        pajaro.setName(animal.Nombre);
+                        pajaro.setObservacion(animal.Observacion);
+                        pajaro.setId(animal.id);
+                        lst.add(pajaro);
+                        break;
+
+                }
+            }
+            
+            for(Animal animal:lst) {
+                System.out.println(animal.getObservacion());
+                if (animal instanceof Dog) {
+                    ((Dog) animal).barking();
+                } 
+                if (animal instanceof Cat) {
+                    ((Cat) animal).barking();
+                }
+                if (animal instanceof Horse) {
+                    ((Horse) animal).barking();
+                }
+                if (animal instanceof Parrot) {
+                    ((Parrot) animal).barking();
+                }
             }
         } catch(Exception ex) {
 
