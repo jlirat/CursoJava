@@ -4,6 +4,14 @@ public abstract class Animal {
     int id;
     String breed;
     String color;
+    public String getColor() {
+        return color;
+    }
+
+    public void setColor(String color) {
+        this.color = color;
+    }
+
     int age;
     double weight;
     String observacion;
